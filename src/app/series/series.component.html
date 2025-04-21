@@ -1,27 +1,47 @@
-<div class="container-fluid">
-  <div class="col-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="h4">Name</th>
-          <th class="h4">Channel</th>
-          <th class="h4">Seasons</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let s of series">
-          <td>
-            <dd>{{s.name}}</dd>
-          </td>
-          <td>
-            <dd>{{s.channel}}</dd>
-          </td>
-          <td>
-            <dd>{{s.seasons}}</dd>
-          </td>
-      </tr>
+<div class="series-container">
+  <!-- Franja azul con el título -->
+  <div class="header">
+    <div class="tv-icon">TV</div>
+    <h1>TV Series</h1>
+  </div>
 
-      </tbody>
-    </table>
+  <!-- Contenedor principal con tabla y detalles -->
+  <div class="content-container">
+    <!-- Tabla de series -->
+    <div class="table-container">
+      <table class="series-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Channel</th>
+            <th>Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let serie of series; let i = index" (click)="selectSerie(serie)" [class.selected]="selectedSerie === serie">
+            <td>{{ i + 1 }}</td>
+            <td><a [class.selected]="selectedSerie === serie">{{ serie.name }}</a></td>
+            <td>{{ serie.channel }}</td>
+            <td>{{ serie.seasons }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="average-seasons">
+        Seasons average: {{ averageSeasons | number:'1.0-1' }}
+      </div>
+    </div>
+
+    <!-- Panel de detalles de la serie seleccionada -->
+    <div class="serie-details" *ngIf="selectedSerie">
+      <div class="image-container">
+        <img [src]="selectedSerie.poster" [alt]="selectedSerie.name" *ngIf="selectedSerie.poster">
+      </div>
+      <div class="details-content">
+        <h2>{{ selectedSerie.name }}</h2>
+        <p>{{ selectedSerie.description }}</p>
+        <p *ngIf="selectedSerie.webpage"><a [href]="selectedSerie.webpage" target="_blank">Official Website</a></p>
+      </div>
+    </div>
   </div>
 </div>

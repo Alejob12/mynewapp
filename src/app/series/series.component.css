@@ -1,0 +1,127 @@
+/* Estilos generales */
+.series-container {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Estilos para el encabezado */
+  .header {
+    background-color: #00a7c7;
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .tv-icon {
+    background-color: black;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: normal;
+  }
+  
+  /* Contenedor principal */
+  .content-container {
+    display: flex;
+    gap: 30px;
+  }
+  
+  /* Estilos para la tabla */
+  .table-container {
+    flex: 1;
+  }
+  
+  .series-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .series-table th, 
+  .series-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .series-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+  }
+  
+  .series-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .series-table tr.selected {
+    background-color: #e0f7fa;
+  }
+  
+  .series-table a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .series-table a:hover,
+  .series-table a.selected {
+    text-decoration: underline;
+  }
+  
+  .average-seasons {
+    margin-top: 20px;
+    font-style: italic;
+    color: #555;
+  }
+  
+  /* Estilos para los detalles de la serie */
+  .serie-details {
+    flex: 1;
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+  }
+  
+  .image-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .details-content h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  .details-content p {
+    line-height: 1.5;
+    color: #444;
+  }
+  
+  .details-content a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .details-content a:hover {
+    text-decoration: underline;
+  }
