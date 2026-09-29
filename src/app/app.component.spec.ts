@@ -1,35 +1,25 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterModule.forRoot([])
-      ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('se crea', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have as title 'mynewapp'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('mynewapp');
-  });
-
-  it('should render title', () => {
+  it('muestra el título y el listado de series', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, mynewapp');
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('h1')?.textContent).toContain('Lista de Series');
+    expect(el.querySelector('app-series')).not.toBeNull();
   });
 });

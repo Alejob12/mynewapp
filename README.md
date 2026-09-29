@@ -1,59 +1,48 @@
-# Mynewapp
+# Lista de Series — Aplicación Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+Aplicación web hecha con **Angular 19** que muestra un listado de series de televisión: tabla con nombre, canal y temporadas, promedio de temporadas y un panel de detalle (póster, descripción y enlace oficial) al seleccionar una serie.
 
-## Development server
+## Qué demuestra
 
-To start a local development server, run:
+- Componentes, módulos y servicios de Angular (`SeriesComponent`, `SeriesModule`, `SerieService`).
+- Consumo de un JSON remoto con `HttpClient` y `Observable`.
+- Configuración por entorno (`environment.ts` y `environment.development.ts`).
+- Pruebas unitarias con Jasmine y Karma: el servicio (con `HttpTestingController`), el componente (filas, promedio y detalle) y el componente raíz.
+- Estilos con Bootstrap 5 y CSS propio.
 
-```bash
-ng serve
-```
+## Cómo ejecutarlo
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Requisitos: Node.js 20 o superior.
 
 ```bash
-ng generate component component-name
+git clone https://github.com/Alejob12/mynewapp.git
+cd mynewapp
+npm install
+npm start            # http://localhost:4200
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Los datos se leen de un JSON público (ver `baseUrl` en `src/environments/`), así que se necesita conexión a internet.
 
-```bash
-ng generate --help
+| Comando | Qué hace |
+| --- | --- |
+| `npm start` | Servidor de desarrollo con recarga automática |
+| `npm run build` | Compila para producción en `dist/` |
+| `npm test` | Pruebas unitarias en Chrome con recarga |
+| `npm run test:ci` | Pruebas una sola vez, en Chrome sin interfaz |
+
+## Estructura
+
+```
+src/app/
+  app.component.*        Título y contenedor
+  series/
+    Serie.ts             Modelo
+    serie.service.ts     Lectura del JSON de series
+    series.component.*   Tabla, promedio y detalle
+    *.spec.ts            Pruebas unitarias
+src/environments/        URL base de los datos por entorno
 ```
 
-## Building
+## Autor
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Alejandro Bernal** — Ingeniería de Sistemas e Industrial, Universidad de los Andes.
